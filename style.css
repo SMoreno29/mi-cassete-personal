@@ -1,0 +1,76 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --accent: #1db954;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mixtape-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.mixtape-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.mixtape-header p {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.playlist {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.song-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.song-card:hover {
+    transform: translateY(-2px);
+}
+
+.message-box {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+}
+
+.message-text {
+    margin: 0 0 10px 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.message-author {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: right;
+    font-weight: bold;
+}
