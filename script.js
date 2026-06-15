@@ -174,6 +174,63 @@ function switchSide(side) {
     document.getElementById('container-lado-a').classList.toggle('active', side === 'A');
     document.getElementById('container-lado-b').classList.toggle('active', side === 'B');
 }
+// ========================================================
+// GENERADOR DE MOTIVOS VISUALES (VERSIÓN IMÁGENES)
+// ========================================================
+
+// Asegúrate de que estos nombres coincidan con los archivos que subiste a tu carpeta "iconos"
+const motifs = [
+    'iconos/girasol.png',
+    'iconos/guitarra.png',
+    'iconos/corazon-amarillo.png',
+    'iconos/corazon-blanco.png',
+    'iconos/gafas-redondas.png',
+    'iconos/gafas-cuadradas.png'
+];
+
+function generateBackgroundDecorations() {
+    const bgContainer = document.getElementById('bg-decorations');
+    if (!bgContainer) return;
+
+    // Limpiamos el contenedor por si acaso
+    bgContainer.innerHTML = '';
+
+    // Cantidad de figuras que habrá a CADA lado (12 a la izquierda, 12 a la derecha)
+    const itemsPerSide = 12; 
+
+    function createIcon(side) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'bg-motif';
+        
+        const randomMotif = motifs[Math.floor(Math.random() * motifs.length)];
+        wrapper.innerHTML = `<img src="${randomMotif}" alt="decoración">`;
+
+        // Si es el lado izquierdo, se ubican entre el 2% y el 18% del ancho de la pantalla
+        // Si es el derecho, se ubican entre el 78% y el 95% del ancho
+        const posX = side === 'left' ? (2 + Math.random() * 16) : (78 + Math.random() * 17);
+        
+        // Se distribuyen a lo largo de toda la altura de la página (del 5% al 95%)
+        const posY = 5 + Math.random() * 90;
+
+        // Tamaños variados (entre el 50% y el 110% de su tamaño original)
+        const scale = 0.5 + Math.random() * 0.6;
+        // Rotación natural
+        const rotation = (Math.random() * 80) - 40;
+
+        wrapper.style.left = `${posX}%`;
+        wrapper.style.top = `${posY}%`;
+        wrapper.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+
+        bgContainer.appendChild(wrapper);
+    }
+
+    // Ejecutamos la creación repartiendo la misma cantidad a cada lado
+    for (let i = 0; i < itemsPerSide; i++) {
+        createIcon('left');
+        createIcon('right');
+    }
+}
 
 // Inicializar la carga al abrir la página
 renderMixtape();
+generateBackgroundDecorations();

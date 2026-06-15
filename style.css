@@ -173,3 +173,49 @@ body {
     color: var(--text-marker);
     text-align: right;
 }
+/* ========================================================
+   Capa de Fondo Decorativa (Motivos Visuales)
+   ======================================================== */
+#bg-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; 
+    pointer-events: none; 
+    overflow: hidden;
+}
+
+.bg-motif {
+    position: absolute;
+    /* AQUÍ CONTROLAS LA TRANSPARENCIA: 0.15 es un 15% visible. 
+       Bájalo a 0.08 si los quieres casi invisibles, o súbelo a 0.3 si no se notan */
+    opacity: 0.15; 
+    transition: transform 0.3s ease;
+}
+
+.bg-motif img {
+    /* Reduje un poquito el tamaño base para que no compitan con el casete */
+    width: 40px; 
+    height: auto;
+    user-select: none; 
+    -webkit-user-drag: none;
+}
+
+/* Estilo para los créditos de Flaticon */
+.flaticon-credits {
+    margin-top: 50px;
+    font-size: 0.65rem;
+    color: var(--text-printed);
+    opacity: 0.3; /* Muy sutil para que no arruine el diseño */
+    text-align: center;
+    font-family: var(--font-base);
+}
+.flaticon-credits a {
+    color: var(--text-printed);
+    text-decoration: none;
+}
+.flaticon-credits a:hover {
+    text-decoration: underline;
+}
