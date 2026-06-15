@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');*/
+
+@font-face {
+    font-family: 'MiFuenteDaFont'; /* Este es el nombre clave que tú inventes */
+    src: url('fuentes/fuente-marcador.otf') format('opentype'); 
+    /* Nota: Si tu archivo es .otf, cambia 'truetype' por 'opentype' */
+    font-weight: normal;
+    font-style: normal;
+}
 
 :root {
     --bg-surface: #E5A65D; /* Mantiene tu tono mostaza/naranja cálido */
@@ -8,7 +16,7 @@
     --text-marker: #000000;
     --text-printed: #444444;
     --accent-orange: #FF9F1C;
-    --font-marker: 'Indie Flower', cursive;
+    --font-marker: 'MiFuenteDaFont', cursive;
     --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -116,6 +124,62 @@ body {
 
 .phase-header:hover {
     background-color: #e08b14;
+}
+
+.info-btn {
+    font-size: 1.1rem; /* Un poco más compacto para equilibrar el centro */
+    background-color: #282828;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.info-btn:hover {
+    color: #FFFFFF;
+    background-color: #383838;
+}
+
+/* Estado del botón cuando la nota está abierta */
+.info-btn.active {
+    background-color: #444444;
+    color: var(--accent-orange);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Contenedor de la nota explicativa */
+.info-panel {
+    display: none; /* Oculto por defecto */
+    background-color: var(--label-paper);
+    border: 2px dashed var(--accent-orange);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    animation: slideDown 0.3s ease forwards;
+}
+
+/* Clase que activa la visibilidad mediante JavaScript */
+.info-panel.active {
+    display: block;
+}
+
+.info-text {
+    font-family: var(--font-marker);
+    font-size: 1.25rem;
+    color: var(--text-marker);
+    margin: 0;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Animación sutil de despliegue */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Indicador mecánico de apertura/cierre (flecha) */
