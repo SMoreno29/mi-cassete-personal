@@ -1,98 +1,175 @@
+/* ========================================================
+   Importar la fuente de marcador de Google Fonts
+   ======================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* ========================================================
+   Variables de paleta de colores basadas en la referencia
+   ======================================================== */
 :root {
-    --bg-color: #121212;
-    --card-bg: #1e1e1e;
-    --text-main: #e0e0e0;
-    --text-muted: #a0a0a0;
-    --accent: #1db954;
+    /* Superficie de la mesa (color crema suave del fondo de image_1.png) */
+    --bg-surface: #FBF6EF; 
+    
+    /* Carcasa del cassette (negro mate de image_1.png) */
+    --cassette-body: #1C1C1C;
+    
+    /* Etiqueta de papel (el color crema más fuerte de la etiqueta en image_1.png) */
+    --label-paper: #FFF7E8;
+    
+    /* Pegatina de canción (blanco puro, como un sticker limpio) */
+    --song-sticker: #FFFFFF;
+    
+    /* Texto de marcador (negro profundo) */
+    --text-marker: #000000;
+    
+    /* Texto impreso/detalles (gris oscuro de image_1.png) */
+    --text-printed: #444444;
+    
+    /* Color de acento para bordes de mensajes (gris del cuerpo de la cinta) */
+    --accent-gray: #555555;
+    
+    /* Fuentes */
+    --font-marker: 'Indie Flower', cursive;
+    --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ========================================================
+   Estilos base de la página
+   ======================================================== */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-main);
+    font-family: var(--font-base);
+    background-color: var(--bg-surface);
+    color: var(--text-printed);
     margin: 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* Un ligero sombreado general para dar profundidad */
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.05);
 }
 
+/* ========================================================
+   Header (Título general de la Mixtape)
+   ======================================================== */
 .mixtape-header {
     text-align: center;
     margin-bottom: 40px;
 }
 
 .mixtape-header h1 {
-    font-size: 2.5rem;
+    font-family: var(--font-marker);
+    font-size: 3rem;
     margin-bottom: 5px;
+    color: var(--text-marker);
+    text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 .mixtape-header p {
-    color: var(--text-muted);
+    color: var(--text-printed);
     font-style: italic;
+    opacity: 0.8;
 }
 
+/* ========================================================
+   Contenedor principal (La "Carcasa" del Cassette)
+   ======================================================== */
+main {
+    background-color: var(--cassette-body);
+    width: 100%;
+    max-width: 700px;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 
+        /* Profundidad exterior */
+        0 15px 35px rgba(0,0,0,0.5),
+        /* Biselado interior */
+        inset 0 4px 10px rgba(255,255,255,0.1),
+        inset 0 -4px 10px rgba(0,0,0,0.4);
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ========================================================
+   Lista de reproducción (El área de la Etiqueta)
+   ======================================================== */
 .playlist {
     width: 100%;
-    max-width: 600px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 15px;
 }
 
+/* Estilos para los títulos de Lado (A y B) */
+.side-title {
+    font-family: var(--font-marker);
+    color: var(--text-marker);
+    margin: 10px 0;
+    text-align: center;
+    font-size: 2rem;
+    background-color: var(--label-paper);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Estilos para los títulos de las fases musicales */
+.phase-title {
+    font-family: var(--font-marker);
+    color: var(--text-printed);
+    font-size: 1.2rem;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* ========================================================
+   Canciones individuales (Las "Pegatinas")
+   ======================================================== */
 .song-card {
-    background-color: var(--card-bg);
-    border-radius: 12px;
+    background-color: var(--song-sticker);
+    border-radius: 8px;
     padding: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
 .song-card:hover {
     transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Contenedor del reproductor de Spotify para que no pierda su forma */
+.spotify-embed {
+    margin-bottom: 10px;
+}
+
+/* ========================================================
+   Cuadro de mensaje (La "Nota a mano")
+   ======================================================== */
 .message-box {
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-left: 4px solid var(--accent);
+    background-color: rgba(0, 0, 0, 0.02);
+    border-left: 4px solid var(--accent-gray);
     border-radius: 4px;
 }
 
 .message-text {
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
     line-height: 1.5;
     font-size: 0.95rem;
+    color: var(--text-printed);
 }
 
 .message-author {
     margin: 0;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    font-family: var(--font-marker);
+    font-size: 1rem;
+    color: var(--text-marker);
     text-align: right;
     font-weight: bold;
-}
-/* Títulos de Lados (A y B) */
-.side-title {
-    color: var(--accent);
-    margin-top: 50px;
-    margin-bottom: 5px;
-    text-align: center;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 15px;
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-}
-
-/* Títulos de las fases musicales */
-.phase-title {
-    color: var(--text-main);
-    font-size: 1.1rem;
-    margin-top: 25px;
-    margin-bottom: 0px;
-    font-style: italic;
-    opacity: 0.8;
-    text-align: center;
 }

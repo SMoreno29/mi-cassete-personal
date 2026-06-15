@@ -2,16 +2,16 @@ const mixtape = [
     // ========================================================
     // 📼 LADO A: ESPAÑOL
     // ========================================================
-    { isHeader: true, text: "📼 Lado A: Español (Atmósfera, Nostalgia y Catarsis)", level: 1 },
+    { isHeader: true, text: "📼 Lado A: Música en español", level: 1 },
     
-    { isHeader: true, text: "Fase 1: Post-Punk, Dream Pop y Synth", level: 2 },
+    { isHeader: true, text: "Fase 1: Estas no le gustan tanto a usted... pero siempre me recuerdan a usted", level: 2 },
     { url: "https://open.spotify.com/embed/track/4aXFFHGVSOyOioAmFe6HNv", message: "Mensaje aquí...", author: "Tu nombre" }, // tuyo - the citie
     { url: "https://open.spotify.com/embed/track/2xyCkGYkYIrbi5JwzCjcH8", message: "Mensaje aquí...", author: "Tu nombre" }, // te odio - te vi en un planetario
     { url: "https://open.spotify.com/embed/track/5nx4a08HCtXziESYjGxmQp", message: "Mensaje aquí...", author: "Tu nombre" }, // vivo del aire - depresión sonora
     { url: "https://open.spotify.com/embed/track/0HI5eKYH3drwfp3xiW0gcw", message: "Mensaje aquí...", author: "Tu nombre" }, // niños - la texana
     { url: "https://open.spotify.com/embed/track/6JKcFQh5H6Lph4oBbTJg0y", message: "Mensaje aquí...", author: "Tu nombre" }, // el ciego - la texana
 
-    { isHeader: true, text: "Fase 2: Rock Alternativo y Pop Clásico", level: 2 },
+    { isHeader: true, text: "Fase 2: Canciones del pasado y del futuro que ya no le voy a poder dedicar más", level: 2 },
     { url: "https://open.spotify.com/embed/track/4CoJ7RN7myJHXYIx1pB8IF", message: "Mensaje aquí...", author: "Tu nombre" }, // los imanes - odisseo
     { url: "https://open.spotify.com/embed/track/50gjhPjZCyQpya1Bcq2BNe", message: "Mensaje aquí...", author: "Tu nombre" }, // californica - la gusana ciega
     { url: "https://open.spotify.com/embed/track/43dJHapc2VR9VwBACyljgQ", message: "Mensaje aquí...", author: "Tu nombre" }, // el beso del payaso - enjambre
@@ -20,14 +20,14 @@ const mixtape = [
     { url: "https://open.spotify.com/embed/track/5nkCX8swYXg7tMk9gemoOo", message: "Mensaje aquí...", author: "Tu nombre" }, // tan solo un instante - enanitos verdes
     { url: "https://open.spotify.com/embed/track/7eKkXV2jH4xGefItHAUk9g", message: "Mensaje aquí...", author: "Tu nombre" }, // mi primer dia sin ti - los enanitos verdes
 
-    { isHeader: true, text: "Fase 3: Indie Emo", level: 2 },
+    { isHeader: true, text: "Fase 3: Hubiera hecho cualquier cosa por arreglarlo todo", level: 2 },
     { url: "https://open.spotify.com/embed/track/1sboWJLAzxzF9hD4TVUoLH", message: "Mensaje aquí...", author: "Tu nombre" }, // si todo va bien... - perfecto miserable
     { url: "https://open.spotify.com/embed/track/7AvyWxJDbrAjR3G50RBW3b", message: "Mensaje aquí...", author: "Tu nombre" }, // termonuclear - perfecto miserable
     { url: "https://open.spotify.com/embed/track/1Ptqdf00ZVJ1npGo2N1VFD", message: "Mensaje aquí...", author: "Tu nombre" }, // ya no te gusto - el antisocial
     { url: "https://open.spotify.com/embed/track/39bS3YWo6EuLFVbHvdbjau", message: "Mensaje aquí...", author: "Tu nombre" }, // terapia - lazaro suplika dopamina
     { url: "https://open.spotify.com/embed/track/0WYOxDu4eysJlaioyyrMEO", message: "Mensaje aquí...", author: "Tu nombre" }, // no somos amigos - siempre no
 
-    { isHeader: true, text: "Fase 4: Pop Punk y Punk Rock", level: 2 },
+    { isHeader: true, text: "Fase 4: No hay más remedio", level: 2 },
     { url: "https://open.spotify.com/embed/track/6QDqe6O7K3jqpgPzEO4XUm", message: "Mensaje aquí...", author: "Tu nombre" }, // como miranda - estamos perdidos
     { url: "https://open.spotify.com/embed/track/5PRKsAuv20FvOgfXBinVf8", message: "Mensaje aquí...", author: "Tu nombre" }, // por qué tan solo y triste? - estamos perdidos
     { url: "https://open.spotify.com/embed/track/7BCuILMtoNvlDPtKG57mqw", message: "Mensaje aquí...", author: "Tu nombre" }, // 10 am - PXNDX
@@ -39,15 +39,15 @@ const mixtape = [
     // ========================================================
     // 📼 LADO B: INGLÉS
     // ========================================================
-    { isHeader: true, text: "📼 Lado B: Inglés (De la Calma a la Tormenta)", level: 1 },
+    { isHeader: true, text: "📼 Lado B: Música en inglés", level: 1 },
 
-    { isHeader: true, text: "Fase 1: Chill, Electrónica y Post-Punk", level: 2 },
+    { isHeader: true, text: "Fase 1: ...", level: 2 },
     { url: "https://open.spotify.com/embed/track/1NeLwFETswx8Fzxl2AFl91", message: "Mensaje aquí...", author: "Tu nombre" }, // something about us - daft punk
     { url: "https://open.spotify.com/embed/track/49edirvFZwWjxAMZJRg1hN", message: "Mensaje aquí...", author: "Tu nombre" }, // lovesong - the cure
     { url: "https://open.spotify.com/embed/track/0Ky1rnbxYY41g4H9plxK6Q", message: "Mensaje aquí...", author: "Tu nombre" }, // boys don´t cry - the cure
     { url: "https://open.spotify.com/embed/track/2PAhcPwab2sJz340QHtunD", message: "Mensaje aquí...", author: "Tu nombre" }, // this modern love - bloc party
 
-    { isHeader: true, text: "Fase 2: Rock Alternativo", level: 2 },
+    { isHeader: true, text: "Fase 2: Nunca viajamos juntos lo suficiente", level: 2 },
     { url: "https://open.spotify.com/embed/track/2MLHyLy5z5l5YRp7momlgw", message: "Mensaje aquí...", author: "Tu nombre" }, // island in the sun - weezer
     { url: "https://open.spotify.com/embed/track/1O9D7P7Z1wMJXW19zTXrXi", message: "Mensaje aquí...", author: "Tu nombre" }, // go away - weezer
     { url: "https://open.spotify.com/embed/track/6oEiISbRGHUyItBkESQoQ7", message: "Mensaje aquí...", author: "Tu nombre" }, // lonely girl - weezer
@@ -57,7 +57,7 @@ const mixtape = [
     { url: "https://open.spotify.com/embed/track/6ISuXA3UCPMtsyEUGUTAyn", message: "Mensaje aquí...", author: "Tu nombre" }, // stellar - incubus
     { url: "https://open.spotify.com/embed/track/6KtLECDztnah63TNmV4Plw", message: "Mensaje aquí...", author: "Tu nombre" }, // wish you were here - incubus
 
-    { isHeader: true, text: "Fase 3: Midwest Emo y Alt Emo", level: 2 },
+    { isHeader: true, text: "Fase 3: No recuerdo quien era yo antes de conocernos", level: 2 },
     { url: "https://open.spotify.com/embed/track/6B7wWLpJGJ9BPju5ytcUvh", message: "Mensaje aquí...", author: "Tu nombre" }, // movember - mom jeans
     { url: "https://open.spotify.com/embed/track/19aUuDd6udp1ACNo9t3IuZ", message: "Mensaje aquí...", author: "Tu nombre" }, // death cup - mom jeans
     { url: "https://open.spotify.com/embed/track/794wvyVcaQpECvWCBQpaTB", message: "Mensaje aquí...", author: "Tu nombre" }, // sobs quietly - mom jeans
@@ -68,7 +68,7 @@ const mixtape = [
     { url: "https://open.spotify.com/embed/track/4s3IQXq6QpAeYxXS6g4MFE", message: "Mensaje aquí...", author: "Tu nombre" }, // am i not what you want? - isolate
     { url: "https://open.spotify.com/embed/track/2g7LEf8UhOrVbUHOcW3SvT", message: "Mensaje aquí...", author: "Tu nombre" }, // saved by you - druidess
 
-    { isHeader: true, text: "Fase 4: Pop Punk, Post-Hardcore y Metalcore", level: 2 },
+    { isHeader: true, text: "Fase 4: \"If there is light it, will find you\"", level: 2 },
     { url: "https://open.spotify.com/embed/track/1xcPzj7RRYcWGMDDgSe8JL", message: "Mensaje aquí...", author: "Tu nombre" }, // majoring in minors - sugarcult
     { url: "https://open.spotify.com/embed/track/7pQUHNh2KfHTIYIVthjjya", message: "Mensaje aquí...", author: "Tu nombre" }, // skeptics and true believers - the academy is
     { url: "https://open.spotify.com/embed/track/40WWeoX26jtsfdmFx5iRty", message: "Mensaje aquí...", author: "Tu nombre" }, // im low on gas... - pierce the veil
