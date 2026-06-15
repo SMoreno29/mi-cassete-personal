@@ -1,4 +1,3 @@
-// Estructura de datos organizada por Lado -> Fase -> Canciones
 const mixtapeData = {
     A: [
         {
@@ -102,7 +101,6 @@ const mixtapeData = {
     ]
 };
 
-// Función para construir e inyectar el HTML de las canciones en la página
 function renderMixtape() {
     ['A', 'B'].forEach(side => {
         const container = document.getElementById(`container-lado-` + side.toLowerCase());
@@ -125,10 +123,8 @@ function renderMixtape() {
             content.className = 'phase-content';
 
             phase.songs.forEach(song => {
-                // MAGIA AQUÍ: Convertimos tu enlace normal en un enlace de reproductor (embed)
                 let finalUrl = song.url;
                 if (finalUrl.includes('/track/')) {
-                    // Extraemos el código único de la canción y armamos la URL correcta
                     const trackId = finalUrl.split('/track/')[1].split('?')[0];
                     finalUrl = `https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`;
                 }
@@ -136,7 +132,7 @@ function renderMixtape() {
                 const card = document.createElement('div');
                 card.className = 'song-card';
                 
-                // Construimos la tarjeta con la URL ya corregida (finalUrl) y sin el sandbox
+
                 card.innerHTML = `
                     <div class="spotify-embed">
                         <iframe 
@@ -165,7 +161,7 @@ function renderMixtape() {
     });
 }
 
-// Lógica para alternar visibilidad entre el Lado A y Lado B
+
 function switchSide(side) {
     document.getElementById('btn-lado-a').classList.toggle('active', side === 'A');
     document.getElementById('btn-lado-b').classList.toggle('active', side === 'B');
@@ -182,23 +178,38 @@ function toggleInfo() {
     btnInfo.classList.toggle('active');
 }
 
-// ACTUALIZADO: Lógica para alternar visibilidad entre Lado A y Lado B
+
 function switchSide(side) {
-    // Si cambian de lado, cerramos la nota explicativa automáticamente para mantener el orden
+    const containerA = document.getElementById('container-lado-a');
+    const containerB = document.getElementById('container-lado-b');
+    
+
+    const isCurrentlyA = containerA.classList.contains('active');
+    if ((side === 'A' && isCurrentlyA) || (side === 'B' && !isCurrentlyA)) return;
+
+    const cassette = document.querySelector('.cassette-body');
+    
+
     document.getElementById('info-panel').classList.remove('active');
     document.getElementById('btn-info').classList.remove('active');
 
-    document.getElementById('btn-lado-a').classList.toggle('active', side === 'A');
-    document.getElementById('btn-lado-b').classList.toggle('active', side === 'B');
 
-    document.getElementById('container-lado-a').classList.toggle('active', side === 'A');
-    document.getElementById('container-lado-b').classList.toggle('active', side === 'B');
+    cassette.classList.add('flipping');
+
+    setTimeout(() => {
+        document.getElementById('btn-lado-a').classList.toggle('active', side === 'A');
+        document.getElementById('btn-lado-b').classList.toggle('active', side === 'B');
+
+        containerA.classList.toggle('active', side === 'A');
+        containerB.classList.toggle('active', side === 'B');
+    }, 300); 
+
+
+    setTimeout(() => {
+        cassette.classList.remove('flipping');
+    }, 600);
 }
-// ========================================================
-// GENERADOR DE MOTIVOS VISUALES (VERSIÓN IMÁGENES)
-// ========================================================
 
-// Asegúrate de que estSantis coincidan con los archivos que subiste a tu carpeta "iconos"
 const motifs = [
     'iconos/girasol.png',
     'iconos/guitarra.png',
@@ -215,10 +226,8 @@ function generateBackgroundDecorations() {
     bgContainer.innerHTML = '';
 
     const itemsPerSide = 12; 
-    // Dividimos el alto de la página (del 5% al 95%) en partes iguales
     const verticalStep = 90 / itemsPerSide;
 
-    // Aceptamos el índice (i) para saber en qué "estante" colocar el icono
     function createIcon(side, index) {
         const wrapper = document.createElement('div');
         wrapper.className = 'bg-motif';
@@ -226,15 +235,12 @@ function generateBackgroundDecorations() {
         const randomMotif = motifs[Math.floor(Math.random() * motifs.length)];
         wrapper.innerHTML = `<img src="${randomMotif}" alt="decoración">`;
 
-        // BASE Y: Calcula el estante actual (ej. estante 0, estante 1, etc.)
         const baseY = 5 + (index * verticalStep);
-        // Desorden sutil: Lo movemos un poquito arriba o abajo (+/- 3%) para que no parezca una línea perfecta
         const posY = baseY + (Math.random() * 6 - 3);
 
-        // BASE X: Mantenemos el margen lateral seguro
         const posX = side === 'left' 
-            ? (2 + Math.random() * 12)  // Izquierda: entre el 2% y el 14% de la pantalla
-            : (82 + Math.random() * 12); // Derecha: entre el 82% y el 94% de la pantalla
+            ? (2 + Math.random() * 12)
+            : (82 + Math.random() * 12);
 
         const scale = 0.5 + Math.random() * 0.6;
         const rotation = (Math.random() * 80) - 40;
@@ -246,13 +252,11 @@ function generateBackgroundDecorations() {
         bgContainer.appendChild(wrapper);
     }
 
-    // El ciclo ahora envía el número de estante (i) a la función
     for (let i = 0; i < itemsPerSide; i++) {
         createIcon('left', i);
         createIcon('right', i);
     }
 }
 
-// Inicializar la carga al abrir la página
 renderMixtape();
 generateBackgroundDecorations();
