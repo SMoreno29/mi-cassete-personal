@@ -1,41 +1,17 @@
-/* ========================================================
-   Importar la fuente de marcador de Google Fonts
-   ======================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
-/* ========================================================
-   Variables de paleta de colores basadas en la referencia
-   ======================================================== */
 :root {
-    /* Superficie de la mesa (color crema suave del fondo de image_1.png) */
-    --bg-surface: #FBF6EF; 
-    
-    /* Carcasa del cassette (negro mate de image_1.png) */
+    --bg-surface: #E5A65D; /* Mantiene tu tono mostaza/naranja cálido */
     --cassette-body: #1C1C1C;
-    
-    /* Etiqueta de papel (el color crema más fuerte de la etiqueta en image_1.png) */
     --label-paper: #FFF7E8;
-    
-    /* Pegatina de canción (blanco puro, como un sticker limpio) */
     --song-sticker: #FFFFFF;
-    
-    /* Texto de marcador (negro profundo) */
     --text-marker: #000000;
-    
-    /* Texto impreso/detalles (gris oscuro de image_1.png) */
     --text-printed: #444444;
-    
-    /* Color de acento para bordes de mensajes (gris del cuerpo de la cinta) */
-    --accent-gray: #555555;
-    
-    /* Fuentes */
+    --accent-orange: #FF9F1C;
     --font-marker: 'Indie Flower', cursive;
     --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ========================================================
-   Estilos base de la página
-   ======================================================== */
 body {
     font-family: var(--font-base);
     background-color: var(--bg-surface);
@@ -45,124 +21,149 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Un ligero sombreado general para dar profundidad */
-    box-shadow: inset 0 0 100px rgba(0,0,0,0.05);
 }
 
-/* ========================================================
-   Header (Título general de la Mixtape)
-   ======================================================== */
 .mixtape-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .mixtape-header h1 {
     font-family: var(--font-marker);
-    font-size: 3rem;
-    margin-bottom: 5px;
+    font-size: 3.5rem;
+    margin: 0;
     color: var(--text-marker);
     text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
-.mixtape-header p {
-    color: var(--text-printed);
-    font-style: italic;
-    opacity: 0.8;
-}
-
-/* ========================================================
-   Contenedor principal (La "Carcasa" del Cassette)
-   ======================================================== */
-main {
+/* Carcasa del Cassette */
+.cassette-body {
     background-color: var(--cassette-body);
     width: 100%;
-    max-width: 700px;
+    max-width: 650px;
     border-radius: 20px;
-    padding: 30px;
-    box-shadow: 
-        /* Profundidad exterior */
-        0 15px 35px rgba(0,0,0,0.5),
-        /* Biselado interior */
-        inset 0 4px 10px rgba(255,255,255,0.1),
-        inset 0 -4px 10px rgba(0,0,0,0.4);
-    position: relative;
-    border: 1px solid rgba(255,255,255,0.05);
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 4px 10px rgba(255,255,255,0.1);
 }
 
-/* ========================================================
-   Lista de reproducción (El área de la Etiqueta)
-   ======================================================== */
-.playlist {
-    width: 100%;
+/* Selector de Lados (Botones mecánicos) */
+.cassette-switch {
     display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    border-bottom: 2px dashed rgba(255,255,255,0.1);
+    padding-bottom: 15px;
+}
+
+.switch-btn {
+    font-family: var(--font-marker);
+    font-size: 1.4rem;
+    padding: 8px 25px;
+    border: none;
+    border-radius: 6px;
+    background-color: #333333;
+    color: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.switch-btn:hover {
+    color: #FFFFFF;
+    background-color: #444444;
+}
+
+.switch-btn.active {
+    background-color: var(--accent-orange);
+    color: var(--text-marker);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    font-weight: bold;
+}
+
+/* Control de visibilidad de los lados */
+.side-container {
+    display: none;
     flex-direction: column;
     gap: 15px;
 }
 
-/* Estilos para los títulos de Lado (A y B) */
-.side-title {
-    font-family: var(--font-marker);
-    color: var(--text-marker);
-    margin: 10px 0;
-    text-align: center;
-    font-size: 2rem;
-    background-color: var(--label-paper);
-    padding: 10px;
+.side-container.active {
+    display: flex;
+}
+
+/* Estructura del Acordeón (Fases) */
+.phase-accordion {
     border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--label-paper);
     border: 1px solid rgba(0,0,0,0.1);
 }
 
-/* Estilos para los títulos de las fases musicales */
-.phase-title {
+.phase-header {
     font-family: var(--font-marker);
-    color: var(--text-printed);
-    font-size: 1.2rem;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    text-align: center;
-    opacity: 0.8;
+    font-size: 1.3rem;
+    color: var(--text-marker);
+    padding: 15px;
+    margin: 0;
+    background-color: var(--accent-orange);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    transition: background-color 0.2s;
 }
 
-/* ========================================================
-   Canciones individuales (Las "Pegatinas")
-   ======================================================== */
+.phase-header:hover {
+    background-color: #e08b14;
+}
+
+/* Indicador mecánico de apertura/cierre (flecha) */
+.phase-header::after {
+    content: '▶';
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+    color: var(--text-marker);
+}
+
+.phase-accordion.open .phase-header::after {
+    transform: rotate(90deg);
+}
+
+/* Contenedor interno de canciones en la fase */
+.phase-content {
+    display: none;
+    padding: 15px;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--label-paper);
+}
+
+.phase-accordion.open .phase-content {
+    display: flex;
+}
+
+/* Tarjetas de canciones */
 .song-card {
     background-color: var(--song-sticker);
     border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     border: 1px solid rgba(0,0,0,0.05);
 }
 
-.song-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Contenedor del reproductor de Spotify para que no pierda su forma */
-.spotify-embed {
-    margin-bottom: 10px;
-}
-
-/* ========================================================
-   Cuadro de mensaje (La "Nota a mano")
-   ======================================================== */
 .message-box {
     margin-top: 10px;
-    padding: 15px;
+    padding: 10px 15px;
     background-color: rgba(0, 0, 0, 0.02);
-    border-left: 4px solid var(--accent-gray);
+    border-left: 3px solid #555555;
     border-radius: 4px;
 }
 
 .message-text {
-    margin: 0 0 8px 0;
-    line-height: 1.5;
+    margin: 0 0 5px 0;
     font-size: 0.95rem;
-    color: var(--text-printed);
+    line-height: 1.4;
 }
 
 .message-author {
@@ -171,5 +172,4 @@ main {
     font-size: 1rem;
     color: var(--text-marker);
     text-align: right;
-    font-weight: bold;
 }

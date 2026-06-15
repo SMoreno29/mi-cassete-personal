@@ -8,12 +8,19 @@
 </head>
 <body>
     <header class="mixtape-header">
-        <h1>Lado A</h1>
+        <h1>Mixtape</h1>
         <p>Una colección de canciones y lo que significan.</p>
     </header>
 
-    <main id="playlist-container" class="playlist">
-        </main>
+    <main class="cassette-body">
+        <div class="cassette-switch">
+            <button id="btn-lado-a" class="switch-btn active" onclick="switchSide('A')">LADO A</button>
+            <button id="btn-lado-b" class="switch-btn" onclick="switchSide('B')">LADO B</button>
+        </div>
+
+        <div id="container-lado-a" class="side-container active"></div>
+        <div id="container-lado-b" class="side-container"></div>
+    </main>
 
     <script src="script.js"></script>
 </body>
