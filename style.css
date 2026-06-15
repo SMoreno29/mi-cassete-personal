@@ -74,3 +74,25 @@ body {
     text-align: right;
     font-weight: bold;
 }
+/* Títulos de Lados (A y B) */
+.side-title {
+    color: var(--accent);
+    margin-top: 50px;
+    margin-bottom: 5px;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+/* Títulos de las fases musicales */
+.phase-title {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    margin-top: 25px;
+    margin-bottom: 0px;
+    font-style: italic;
+    opacity: 0.8;
+    text-align: center;
+}
